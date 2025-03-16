@@ -21,14 +21,15 @@ const FIVE_MINS = 5 * SECS_IN_MIN * MS_IN_SECS;
 export default function FocusScreen() {
   const {
     duration,
-    currDate,
+    isPaused,
     isRunning,
-    startDate,
     elapsedTime,
     setStartDate,
     setDuration,
     setIsRunning,
     setElapsedTime,
+    pauseTimer,
+    resumeTimer,
   } = useTimer();
 
   const setTimerDuration = (minutes: number) => {
@@ -39,10 +40,6 @@ export default function FocusScreen() {
     setStartDate(Date.now());
     setElapsedTime(0);
     setIsRunning(true);
-  };
-
-  const pauseTimer = () => {
-    // setIsRunning(false);
   };
 
   return (
@@ -115,7 +112,9 @@ export default function FocusScreen() {
         </View>
         <View style={styles.startContainer}>
           <Pressable
-            onPress={() => (isRunning ? pauseTimer() : startTimer())}
+            onPress={() =>
+              isRunning ? pauseTimer() : isPaused ? resumeTimer() : startTimer()
+            }
             style={styles.playBtn}
             disabled={duration === 0}
           >
@@ -142,8 +141,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    height: 50,
+    height: 60,
     width: 320,
+    paddingBottom: 30,
   },
   task: {
     fontSize: 18,
@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
   controlsContainer: {
     flex: 1 / 4,
     width: 320,
+    paddingTop: 30,
     gap: 20,
   },
   durationContainer: {
