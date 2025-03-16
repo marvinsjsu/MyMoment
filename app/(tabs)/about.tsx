@@ -1,6 +1,7 @@
 import { Text, SafeAreaView, ScrollView, StyleSheet } from "react-native";
 
 import Accordion from "@/components/accordion";
+import { PRIMARY_GRAY, PRIMARY_YELLOW } from "@/constants/styles";
 
 const SECTIONS = [
   {
@@ -65,19 +66,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: "rgba(37, 41, 46, 1)",
+    backgroundColor: PRIMARY_GRAY,
     padding: 20,
   },
   textMain: {
     fontSize: 24,
     lineHeight: 36,
-    color: "rgba(255, 255, 255, 1)",
+    color: PRIMARY_YELLOW,
     paddingTop: 20,
     paddingBottom: 20,
   },
   text: {
     fontSize: 18,
     lineHeight: 36,
-    color: "rgba(255, 255, 255, 1)",
+    color: PRIMARY_YELLOW,
   },
 });

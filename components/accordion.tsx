@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import { PRIMARY_GRAY, PRIMARY_YELLOW } from "@/constants/styles";
+
 type Section = {
   key: string;
   title: string;
@@ -34,7 +36,7 @@ export default function Accordion({ items }: Props) {
                   activeSectionKeys.has(key) ? "chevron-up" : "chevron-down"
                 }
                 size={24}
-                color="white"
+                color={PRIMARY_YELLOW}
               />
             </View>
           </Pressable>
@@ -59,11 +61,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     borderBottomWidth: 2,
-    borderBottomColor: "rgba(255, 255, 255, 1)",
+    borderBottomColor: PRIMARY_YELLOW,
   },
   sectionTitle: {
     fontSize: 18,
-    color: "rgba(255, 255, 255, 1)",
+    color: PRIMARY_YELLOW,
     padding: 12,
   },
   sectionContentContainer: {
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
   sectionContent: {
     fontSize: 16,
     lineHeight: 28,
-    color: "rgba(255, 255, 255, 1)",
+    color: PRIMARY_YELLOW,
     padding: 8,
     textAlign: "left",
   },

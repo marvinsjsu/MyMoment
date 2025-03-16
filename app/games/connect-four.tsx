@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Dimensions, PanResponder } from "react-native";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 import ResetButton from "@/components/reset-button";
 import { PRIMARY_YELLOW, PRIMARY_GRAY } from "@/constants/styles";
@@ -84,7 +84,7 @@ function getWinningSequence(
   return positions;
 }
 
-export default function ConnectFourScreen() {
+function ConnectFourScreen() {
   const [board, setBoard] = useState<(null | PlayerType)[][]>(INIT_BOARD);
   const [coinHover, setCoinHover] = useState<boolean[]>(INIT_COIN_HOVER);
   const [activePlayer, setActivePlayer] = useState(PLAYERS.RED);
@@ -213,6 +213,8 @@ export default function ConnectFourScreen() {
     </View>
   );
 }
+
+export default ConnectFourScreen;
 
 const styles = StyleSheet.create({
   container: {

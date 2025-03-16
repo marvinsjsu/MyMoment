@@ -55,6 +55,8 @@ export default function TicTacToeDrawer() {
             width: 250,
           },
           drawerContentStyle: {
+            flexDirection: "column-reverse",
+            paddingBottom: 100,
             backgroundColor: PRIMARY_GRAY,
           },
           drawerActiveTintColor: "#ffd33d",

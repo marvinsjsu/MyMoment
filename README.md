@@ -1,6 +1,6 @@
 # Welcome to MyMoments 👋
 
-This is a mobile app created to encourage journaling, enhance focus, and have some fun with your children via two-player board games.  This project is built with [Expo](https://expo.dev) and created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a mobile app created to encourage journaling, enhance focus via a Pomodoro timer, and have some fun with your children via two-player board games.  This project is built with [Expo](https://expo.dev) and created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
 
