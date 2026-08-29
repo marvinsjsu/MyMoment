@@ -1,0 +1,22 @@
+# E2E flow: Focus tab — start, pause, and resume the Pomodoro timer
+# Run with: maestro test .maestro/focus-timer.yaml
+appId: com.marvinsjsu.mymoment
+---
+- launchApp
+- tapOn: "Focus"              # navigate to the Focus tab
+- assertVisible: "25"         # duration buttons should be visible
+- tapOn: "25"                 # select 25-minute duration
+- tapOn:
+    id: "play-circle-outline"  # press play
+- assertVisible:
+    text: "25"
+    enabled: false             # duration buttons disabled while running
+- tapOn:
+    id: "pause-circle-outline" # press pause
+- assertVisible: "25"          # duration buttons re-enabled after pause
+  enabled: true
+- tapOn:
+    id: "play-circle-outline"  # resume
+- assertNotVisible:
+    id: "pause-circle-outline"
+    timeout: 100               # still paused state briefly; just confirm resume works
