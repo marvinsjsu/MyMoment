@@ -1,0 +1,23 @@
+# E2E flow: Games — play a full Tic-tac-toe game until X wins the top row
+# Run with: maestro test .maestro/tic-tac-toe-win.yaml
+appId: com.marvinsjsu.mymoment
+---
+- launchApp
+- tapOn: "Games"
+- tapOn: "tic-tac-toe"
+- assertVisible: "x moves"
+
+# X takes top-left (0), O takes center (4), X takes top-center (1),
+# O takes bottom-left (6), X takes top-right (2) → X wins top row
+- tapOn:
+    point: "10%,35%"   # cell 0 — top-left
+- tapOn:
+    point: "50%,50%"   # cell 4 — center
+- tapOn:
+    point: "37%,35%"   # cell 1 — top-center
+- tapOn:
+    point: "10%,65%"   # cell 6 — bottom-left
+- tapOn:
+    point: "63%,35%"   # cell 2 — top-right
+
+- assertVisible: "x"   # winning player indicator shown
